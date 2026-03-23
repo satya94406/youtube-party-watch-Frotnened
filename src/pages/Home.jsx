@@ -9,9 +9,7 @@ export default function Home() {
   const [roomId, setRoomId] = useState("");
   const navigate = useNavigate();
 
-  // ============================
-  // Option 1: Original Backend API
-  // ============================
+  // Original Backend API  code  currently i maked this commented due to some deploy issue
   const createRoom = async () => {
     // Uncomment this if you have a backend
     /*
@@ -67,9 +65,6 @@ export default function Home() {
     */
   };
 
-  // ============================
-  // Option 2: Direct client-side room
-  // ============================
   const createRoomClient = () => {
     if (!username.trim()) return alert("Enter username");
 
@@ -117,7 +112,6 @@ export default function Home() {
               className="w-full p-3 mb-4 bg-gray-700 rounded-lg focus:outline-none"
             />
 
-            {/* Use client-side create */}
             <button
               onClick={createRoomClient}
               className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition p-3 rounded-lg mb-4"
@@ -132,7 +126,6 @@ export default function Home() {
                 placeholder="Room ID"
                 className="flex-1 p-3 bg-gray-700 rounded-lg focus:outline-none"
               />
-              {/* Use client-side join */}
               <button
                 onClick={joinRoomClient}
                 className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 transition px-4 rounded-lg"
@@ -141,7 +134,6 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Optional: You can add a toggle later to switch between backend / client-side */}
           </div>
         </div>
 

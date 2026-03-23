@@ -42,7 +42,7 @@ function Room() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // ORIGINAL SOCKET CONNECTION
+  // original socket connection
   // useEffect(() => {
   //   if (!roomId || !userId) return;
   //   connectSocket(
@@ -61,7 +61,6 @@ function Room() {
   //     username
   //   );
   // }, [roomId, userId, username]);
-  // ==========================
 
   const searchYouTube = async (query) => {
     if (!query) return;
@@ -124,19 +123,17 @@ function Room() {
     }
   };
 
-  // ==========================
-  // CLIENT-SIDE ONLY: play video without backend
   const handleSetVideo = () => {
     const id = extractVideoId(videoUrl);
     if (!id) return alert("Invalid URL");
 
-    setVideoId(id); // client-only
+    setVideoId(id); 
     setVideoUrl("");
     setShowSuggestions(false);
   };
 
   const handleSuggestedClick = (video) => {
-    setVideoId(video.videoId); // client-only
+    setVideoId(video.videoId); 
     setShowSuggestions(false);
     setVideoUrl("");
   };
@@ -158,15 +155,15 @@ function Room() {
     }
   }, [isPlaying, seekTo]);
 
-  const onPlay = () => playerRef.current?.playVideo(); // client-only
-  const onPause = () => playerRef.current?.pauseVideo(); // client-only
-  const onStateChange = () => {}; // no backend sync
+  const onPlay = () => playerRef.current?.playVideo(); 
+  const onPause = () => playerRef.current?.pauseVideo(); 
+  const onStateChange = () => {}; 
 
   const handleSendMessage = () => {
     if (!chatInput) return;
 
     const newMsg = { userId: userId || "local", username, message: chatInput };
-    setMessages((prev) => [...prev, newMsg]); // client-only
+    setMessages((prev) => [...prev, newMsg]); 
     setChatInput("");
   };
 
